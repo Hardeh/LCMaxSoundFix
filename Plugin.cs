@@ -12,7 +12,7 @@ namespace LCMaxSoundFix
 
             var audioSettings = AudioSettings.GetConfiguration();
             // default - 40
-            audioSettings.numRealVoices = 80;
+            audioSettings.numRealVoices = 128;
             // default - 512
             audioSettings.numVirtualVoices = 1024;
             AudioSettings.SetConfiguration(audioSettings);
