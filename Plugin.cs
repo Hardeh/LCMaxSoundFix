@@ -1,24 +1,24 @@
 ﻿using BepInEx;
-using UnityEngine;
+using BepInEx.Logging;
 
 namespace LCMaxSoundFix
 {
     [BepInPlugin("." + PluginInfo.PLUGIN_GUID, PluginInfo.PLUGIN_NAME, PluginInfo.PLUGIN_VERSION)]
-    public class Plugin : BaseUnityPlugin
+    internal class Plugin : BaseUnityPlugin
     {
-        private void Awake()
+        internal static new ManualLogSource Logger { get; private set; } = null;
+
+        protected Plugin() : base()
         {
-            // Plugin startup logic
+            Logger = base.Logger;
+        }
 
-            var audioSettings = AudioSettings.GetConfiguration();
-            // default - 40
-            audioSettings.numRealVoices = 128;
-            // default - 512
-            audioSettings.numVirtualVoices = 1024;
-            AudioSettings.Reset(audioSettings);
+        protected void Awake()
+        {
+            Logger?.LogInfo($"Plugin {PluginInfo.PLUGIN_NAME} is loaded!");
 
-            Logger.LogInfo($"Plugin LCMaxSoundsFix is loaded, new audio settings are applied.");
-
+            Logger?.LogDebug("Binding audio config...");
+            AudioConfig.Bind(this);
         }
     }
 }
