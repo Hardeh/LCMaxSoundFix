@@ -3,8 +3,8 @@
   <PropertyGroup>
     <TargetFramework>netstandard2.1</TargetFramework>
     <AssemblyName>LCMaxSoundsFix</AssemblyName>
-    <Description>My first plugin</Description>
-    <Version>1.1.0</Version>
+    <Description>Simple mod that increase max number of simultaneous playing sounds, hopefully fixing missing footsteps and other missing sound problems.</Description>
+    <Version>1.2.0</Version>
     <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
     <LangVersion>latest</LangVersion>
   </PropertyGroup>
